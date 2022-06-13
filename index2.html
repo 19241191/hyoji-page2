@@ -1,119 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>２ページ目</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<meta charset="UTF-8">
 </head>
 <body>
-  <header>
-    <!--
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      -->
-      <!--
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">レッスン</a>
-        <a href="#">日時</a>
-        <a href="#" class="login">場所</a>
-       -->
-      </div>
-    </div>
-  </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1><br></h1>
-      <p><br>気象情報に最適な服装を提案します ♪</p>
-      
-      
-      
-  downloadByURL(url: string) {
-    const link = document.createElement('a')
-    link.download = 'result.csv'
-    link.href = url
-    link.click()
-  }
-  downloadByURL('https://www.data.jma.go.jp/obd/stats/data/mdrr/tem_rct/alltable/mxtemsadext00_rct.csv')
-      
-      
-      
-<!--      
-<input id="upload-file" type="file">
-      const input = document.getElementById('upload-file');
-      -->
-      
-      
-      <div class="btn-wrapper">
-        <!--
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        -->
-        <p>or</p>
-        <a href="#" class="btn facebook"></span>場所</a>
-        <a href="#" class="btn twitter"></span>日時</a>
-      </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>服装の系統</h2>
-      </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p></p>
-          </div>
-          <p class="text-contents">モード系</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p></p>
-          </div>
-          <p class="text-contents">カジュアル系</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p></p>
-          </div>
-          <p class="text-contents">ガーリッシュ系</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p></p>
-          </div>
-          <p class="text-contents">古着系</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>天候や好みを考慮し最適な服装を提案してみせます！お任せあれ！</h2>
-        <!--
-        <h3>Let's learn to code, learn to be creative!</h3>
-        -->
-      </div>
-      <span class="btn message">さっそく試してみる</span>
-    </div>
-  </div>
-<!--
-  <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
-    </div>
-  </footer>
--->
+<script>
+//事前の設定プログラム
+let seiza = ["おひつじ座","おうし座","ふたご座","かに座","しし座","おとめ座","てんびん座","さそり座","いて座","やぎ座","みずがめ座","うお座",];
+let color = ["赤","青","緑","黄色","紫","ピンク","茶","白","黒",];
+let un0 = ["最高","良い","ふつう","ちょっと悪い","サイアク",];//４グループに分けて、ちょっと悪いとちょっと良いの間にふつうを作る
+let un1 = [
+"今日のアナタは絶好調！何をやってもうまくいきます。苦手なことに再チャレンジしたら案外うまくいくかも！",
+"今日は調子が良い日。久しぶりに昔の友だちに連絡してもるのもいいかも！",
+"今日はとてもいつもどおりな日。気を抜きすぎて寝坊をしやすくなるかも？",
+"今日はなんだか気分が良くない日。忘れ物には気をつけて！",
+"今日は何もせずゆっくりしているのが良いかも・・・",
+];
+
+let i = 0;//繰り返し用プログラム
+let n = 0;//繰り返し用プログラム
+
+let rank= [];//ランキングのための変数
+let un = 0;//運勢を判別するための変数
+let color_r = Math.floor( Math.random() * color.length);//ラッキーカラー
+let un_r = Math.floor( Math.random() * seiza.length);//運勢をランキングを選ぶ
+
+document.write("<p>今日の星座ランキング</p>");
+
+ for (i=0 ;i < seiza.length;){
+
+	n = 0;//変数をリセットします
+	un_r = Math.floor( Math.random() * seiza.length);//運勢をランキングを選ぶ
+	color_r = Math.floor( Math.random() * color.length);//ラッキーカラー
+
+	while(n < seiza.length){
+	  if (seiza[un_r] != rank[n]){n++;}
+	  else {break;}
+	}
+
+	if (n >= seiza.length){
+
+	  i++;//iにプラス１を追加する
+
+		if (i >= 0 && i <= 2) {un = 0;}
+		else if (i >= 3 && i <= 5) {un = 1;}
+		else if (i >= 6 && i <= 8) {un = 2;}
+		else if (i >= 9 && i <= 10) {un = 3;}
+		else if (i >= 11 && i <= 12) {un = 4;} 
+
+	//書き出しのプログラム
+		document.write("<ul>");
+		document.write("<li>第"+ i +"位"+ seiza[un_r] +"</li>");
+		document.write("<li>今日のアナタの運勢は"+ un0[un] + "です</li>");
+		document.write("<li>"+ un1[un] +"</li>");
+		document.write("<li>今日のラッキーカラーは"+ color[color_r] +"です</li>");
+		document.write("</ul>");
+
+	  rank.push(seiza[un_r]);//リストに記憶
+
+	 }
+	}
+
+</script>
 </body>
 </html>
