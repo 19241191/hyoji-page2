@@ -11,4 +11,13 @@
 <hr>
 <p id="answer"></p>
 
+<script>
+  const answerLists = ["友情","愛","プライド","お金","夢",];
 
+ const btn = document.getElementById("btn");
+ btn.addEventListener("click", () => {
+   const choiceNo = document.getElementById("choiceList").value;
+   document.getElementById("answer").innerHTML = "";
+   document.getElementById("answer").innerHTML += "この心理テストは、あなたが一番大事にしているものを表しています。<br>あなたが一番大事にしているものは、「" + answerLists[choiceNo] + "」です。";
+ });
+</script>
