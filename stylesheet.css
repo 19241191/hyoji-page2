@@ -1,17 +1,30 @@
-select {
-  display: block;
-  margin: 10px 40px;
-  width: 100px;
-  height: 50px;
+/*質問部分を太字に＆空白調整*/
+#shitsumon p {
+  margin: 10px 0 5px 0;
+  font-weight: bold;
 }
-
-#btn {
-  margin: 10px 40px;
-  width: 100px;
-  height: 30px;
-  line-height: 20px;
-  background-color: purple;
-  color: #ffffff;
-  cursor: pointer;
-  user-select: none;
+#shitsumon li:not(:last-child) {
+  margin-bottom: 20px;
+}
+/*ラジオボタンとテキストの間に余白を入れる*/
+#shitsumon input[type="radio"] {
+  margin-right: 5px;
+}
+/*判定ボタンのデザイン*/
+.hantei {
+  background: #cc0000;
+  color: #fffec5;
+  font-weight: bold;
+  border: none;
+}
+/*結果部分の空白調整*/
+#kekka {
+  margin: 20px 0;
+}
+/*結果部分のデザイン*/
+#kekka div {
+  background: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 20px 10px 80px 30px/40px 70px 30px 40px;
 }
