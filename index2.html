@@ -1,23 +1,71 @@
-<h3>心理テスト</h3>
-<p>あなたが森の中を一人で散歩していると、ある生き物に出会いました。その生き物はどれですか？</p>
-<select id="choiceList">
-  <option value="0">鳥</option>
-  <option value="1">リス</option>
-  <option value="2">クマ</option>
-  <option value="3">人間</option>
-  <option value="4">妖精</option>
-</select>
-<button id="btn">回答する</button>
-<hr>
-<p id="answer"></p>
 
-<script>
-  const answerLists = ["友情","愛","プライド","お金","夢",];
+<form id="shitsumon" name="shitsumon" onsubmit="check(); return false;">
+<ul>
+<li>
+<p>朝食に絶対欠かせないものは？</p>
+<label><input name="q0" type="radio" value="A" required="" />A.卵料理</label><br />
+<label><input name="q0" type="radio" value="B" />B.ヨーグルト</label><br />
+<label><input name="q0" type="radio" value="C" />C.納豆</label></li>
+<li>
+<p>ランチ何食べる？</p>
+<label><input name="q1" type="radio" value="A" required="" />A.オムライス</label><br />
+<label><input name="q1" type="radio" value="B" />B.グラタン</label><br />
+<label><input name="q1" type="radio" value="C" />C.麻婆豆腐</label></li>
+<li>
+<p>3時のおやつといえば？</p>
+<label><input name="q2" type="radio" value="A" required="" />A.プリン</label><br />
+<label><input name="q2" type="radio" value="B" />B.レアチーズケーキ</label><br />
+<label><input name="q2" type="radio" value="C" />C.大福</label></li>
+</ul>
+<input type="submit" value="判定！" class="hantei" /></form>
+<div id="kekka">ここに結果が出るよ！</div>
 
- const btn = document.getElementById("btn");
- btn.addEventListener("click", () => {
-   const choiceNo = document.getElementById("choiceList").value;
-   document.getElementById("answer").innerHTML = "";
-   document.getElementById("answer").innerHTML += "この心理テストは、あなたが一番大事にしているものを表しています。<br>あなたが一番大事にしているものは、「" + answerLists[choiceNo] + "」です。";
- });
+
+
+
+<script　type="text/javascript">
+ function check() {
+    let str = [];
+    //ラジオボタンの中身を取得
+    const q = [document.shitsumon.q0, document.shitsumon.q1, document.shitsumon.q2];
+    //A・B・Cそれぞれの合計点数を入れるための変数
+    var aaa = 0;
+    var bbb = 0;
+    var ccc = 0;
+    //どのラジオボタンが選択されたか判定し、点数を加算
+    for (let n = 0; n < q.length; n++) {
+        for (let i = 0; i < q[n].length; i++) {
+            if (q[n][i].checked) {
+                str[n] = q[n][i].value;
+                if (str[n] == "A") {
+                    aaa++;
+                } else if (str[n] == "B") {
+                    bbb++;
+                } else if (str[n] == "C") {
+                    ccc++;
+                }
+                break;
+            }
+        }
+    }
+    //コメントの条件分岐
+    var message = "";
+    if (aaa > bbb && aaa > ccc) {
+        message = "卵好きだね！";
+    } else if (bbb > aaa && bbb > ccc) {
+        message = "乳製品好きだね！";
+    } else if (ccc > aaa && ccc > bbb) {
+        message = "もしかして豆好き？";
+    } else {
+        message = "バランスの良いチョイスだね！";
+    }
+    //HTMLへ出力
+    var html = '<div>';
+    html += 'A=' + aaa + '個<br>';
+    html += 'B=' + bbb + '個<br>';
+    html += 'C=' + ccc + '個<br><br>';
+    html += '' + message + '';
+    html += '</div>';
+    document.getElementById("kekka").innerHTML = html;
+}
 </script>
