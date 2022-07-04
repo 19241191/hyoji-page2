@@ -47,6 +47,71 @@
       <option value="">地方を選択してください</option>
   </select>
  </body>
+    
+    
+    
+    
+   <script src="jquery-1.6.4.js"></script>
+<script>
+
+
+var questions = {
+'1': {
+text: '問１：山と海、どちらが好き？',
+options: [
+{text: '山', point: 100, next: '2a'},
+{text: '海', point: 50, next: '2b'}
+]
+},
+'2b': {
+text: '問２b：ガンガン泳ぐ派？ビーチでまったり派？',
+options: [
+{text: '泳ぐ', point: 5, next: '2a'},
+{text: 'まったり', point: 7, next: '1'}
+]
+},
+'2a': {
+text: '問２a：○○○○？',
+options: [
+{text: '△△△', point: 4, next: '1'},
+{text: '□□□', point: 2, next: '2b'}
+]
+}
+}
+
+var point = 0;
+function setQuestion(questionId) {
+var question = questions[questionId];
+$('#question').text(question.text);
+$('#point').text(point);
+
+var optionA = question.options[0];
+$('#optionA').text(optionA.text);
+$('#optionAButton').click(function() {
+point += optionA.point;
+setQuestion(optionA.next);
+});
+
+var optionB = question.options[1];
+$('#optionB').text(optionB.text);
+$('#optionBButton').click(function() {
+point += optionB.point;
+setQuestion(optionB.next);
+});
+}
+$(function() {
+setQuestion('1');
+})
+
+</script>
+
+<span id="question"></span><br>
+<br>
+<span id="optionA"></span><input type="button" value="選択" id="optionAButton">
+
+<span id="optionB"></span><input type="button" value="選択" id="optionBButton"><br>
+<br>
+<span id="point"></span>ポイント
 
     <script>
         window.onload = function(){
