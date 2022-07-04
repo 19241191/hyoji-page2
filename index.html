@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>アンケート画面</title>
-<form id="shitsumon" name="shitsumon" onsubmit="check(); return false;">
-<ul>
-<li>
-<p>スカートorズボン</p>
-<label><input name="q0" type="radio" value="A" required="" />A.スカート</label><br />
-<label><input name="q0" type="radio" value="B" />B.ズボン</label><br />
-<label><input name="q0" type="radio" value="C" />C.どちらも好き</label></li>
-<li>
-<p>Ｔシャツorブラウス</p>
-<label><input name="q1" type="radio" value="A" required="" />A.Ｔシャツ</label><br />
-<label><input name="q1" type="radio" value="B" />B.ブラウス</label><br />
-<label><input name="q1" type="radio" value="C" />C.どちらも好き</label></li>
-<li>
-<p>無地or柄あり</p>
-<label><input name="q2" type="radio" value="A" required="" />A.無地</label><br />
-<label><input name="q2" type="radio" value="B" />B.柄あり</label><br />
-<label><input name="q2" type="radio" value="C" />C.どちらも</label></li>
-</ul>
-<input type="submit" value="判定！" class="hantei" /></form>
-<div id="kekka">ここに結果が出るよ！</div>
-
-<script>
+    <script>
     window.addEventListener("DOMContentLoaded", function(){
       var areaSelect=document.getElementById("area");
       var prefSelect=document.getElementById("pref");
@@ -69,6 +47,31 @@
       <option value="">地方を選択してください</option>
   </select>
  </body>
+    
+    
+<title>アンケート画面</title>
+<form id="shitsumon" name="shitsumon" onsubmit="check(); return false;">
+<ul>
+<li>
+<p>スカートorズボン</p>
+<label><input name="q0" type="radio" value="A" required="" />A.スカート</label><br />
+<label><input name="q0" type="radio" value="B" />B.ズボン</label><br />
+<label><input name="q0" type="radio" value="C" />C.どちらも好き</label></li>
+<li>
+<p>Ｔシャツorブラウス</p>
+<label><input name="q1" type="radio" value="A" required="" />A.Ｔシャツ</label><br />
+<label><input name="q1" type="radio" value="B" />B.ブラウス</label><br />
+<label><input name="q1" type="radio" value="C" />C.どちらも好き</label></li>
+<li>
+<p>無地or柄あり</p>
+<label><input name="q2" type="radio" value="A" required="" />A.無地</label><br />
+<label><input name="q2" type="radio" value="B" />B.柄あり</label><br />
+<label><input name="q2" type="radio" value="C" />C.どちらも</label></li>
+</ul>
+<input type="submit" value="判定！" class="hantei" /></form>
+<div id="kekka">ここに結果が出るよ！</div>
+
+
     
     
  
