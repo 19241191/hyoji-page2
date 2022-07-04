@@ -47,7 +47,20 @@
       <option value="">地方を選択してください</option>
   </select>
  </body>
-    
+
+    <script>
+        windows.onload = function(){
+            var button = document.getElementById("button");
+            button.onclick = function(){
+                var elem = document.getElementById("sample")
+                elem.textContent="かきくけこ"
+            }
+        };
+    </script>
+    <body>
+        <p id="sample">あいうえお</p>
+        <input id ="button" type ="button" value="決定">
+    </body>
     
 <title>アンケート画面</title>
 <form id="shitsumon" name="shitsumon" onsubmit="check(); return false;">
